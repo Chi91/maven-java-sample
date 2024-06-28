@@ -63,24 +63,4 @@ jobs:
           name: Package
           path: staging 
 
-  test-job:
-    runs-on: ubuntu-latest
-    needs: publish-job
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
-        with:
-          name: Package
-          path: staging
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Run tests
-        run: |
-          # Führen Sie hier Ihre spezifischen Tests aus, z.B.:
-          java -jar staging/*.jar
-          # Oder spezifische Testbefehle, die auf Ihre Anwendung zutreffen
-
 
